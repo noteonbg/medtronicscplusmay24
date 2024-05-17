@@ -14,7 +14,7 @@ int main()
 
    int a =4;
    int b =5;
-   a+b =6;
+   //a+b =6;
    
 
 
