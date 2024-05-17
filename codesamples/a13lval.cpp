@@ -7,7 +7,7 @@ int main()
 {
 
    int k =23;
-   int &&x =23;
+   int &&x =23; // r reference
  
    cout << x;
 

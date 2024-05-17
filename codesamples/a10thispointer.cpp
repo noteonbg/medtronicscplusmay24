@@ -15,7 +15,8 @@ public:
         : deviceName(name), serialNumber(serial), manufacturerID(manufID) {}
 
     // Method to display device details
-    void changeMedicalDeviceDetails(const string& deviceName, const string& serialNumber, int manufacturerID)
+    void changeMedicalDeviceDetails(const string& deviceName,
+     const string& serialNumber, int manufacturerID)
     {
             
                 this->deviceName=deviceName;
@@ -42,7 +43,7 @@ int main()
 #endif
 
 
-
+#if 1
 #include <iostream>
 using namespace std;
 
@@ -120,7 +121,7 @@ int main() {
     return 0;
 }
 
-
+#endif
 
 
 

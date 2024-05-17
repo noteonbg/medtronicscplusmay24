@@ -1,0 +1,194 @@
+name
+years of experience
+what is your job profile
+what is your expectation from the training program
+have you seen the syllabus.
+
+
+11.00 AM -- 15 minutes
+
+12.30PM lunch break
+1.30 
+
+4.00 PM
+5.15 PM
+
+
+
+
+basics  -- zoom out
+loyalty towards project  --respect architecture and then code
+respecting theory   -- one way of generalizing he learning.
+tolerating uncertainty.. after sitting in the training and going outside
+the training we recognize we dont know many things.. 
+If I think because of me only things fail or succeed..  I wont be able
+to lower the cost of failure, that means when I get struck I am afraid
+to write a small program.
+
+Microscope zoom in.
+1. finally all the English should become functions and variables that fit
+some architecture.
+5/5 functions and variables.
+Functions.
+1. definition of a function
+1.1 think who is going to call it.
+1.2 what does input argument signify, what is return type.
+and how does the caller of function know function succeeded
+failed because of user or independent of user..
+
+2.  calling of a function
+2.1 opening documentation.
+2.2 how do you know what is input indicate, it succeded, it failed..
+
+3.   assigning a function != calling of a function.
+3.1 we are passing like a input argument or a return type.. this leads to
+most important thing in any project == Event handling.
+
+varaibles (5/5)
+1. data type  == content + operations ( operations is basis on
+which you pick up the data type)
+
+2. scope.
+where all you want to access this variable.
+1. local  --within the function
+2. non local  -- across multiple functions with a boundary
+3. global.  --everywhere and fastest way to ruin a project.
+
+--------------------------------------------
+
+Project success = process * technology * tools *culture.
+
+tools
+1. profile
+2. unit test
+3. build tools.
+4. software engineering related tools.
+5. you can configure the compiler to do x things..
+
+I "know" a programming language("minimum")
+
+1. documentation standard (1/5)
+2. variable data type and scopes (5/5)
+3. functions (5/5)
+4. runtime error handling and quantifying (5/5)
+5. string handling and data handling (2/5)
+6. how to use datastructures like arrays and dictionaries (2/5)
+7. how to use editors, profilers, unit testing, packaging tools (0.001/5)
+
+c++ program.
+
+1. applications  -- you can run this independently
+2. libraries.  -- you have to use it with some other application.
+static libraries   -- your library becomes part of application
+if we have library called x and it has got a function called f1
+which prints hello.
+in our application y, we are using this library and calling the f1.
+library becomes part of our application, if we remove x also
+our application y can run.
+
+
+
+
+dynamic libraries  --you library is independent..
+if we have library called x , it is dynamic and it has got a function called f1
+which prints hello.
+in our application y, we are using this library and calling the f1.
+library does not become part of our application, if we remove x also
+our application y cannot run.
+
+
+
+---------------------------------------------
+
+C++ language usage.
+
+1. c+ somethings extra.
+2. oops part, in case we know oops (Object oriented programming)
+
+
+Object orienteness.
+1. it is not just using classes.
+
+1. abstraction   ( high priority)  -- interfaces
+2. encapsulation -- by using classes.
+3. relationship between classes  (high priority), aggregation, dependency, composition, inheritance
+4. namespace.. how to avoid naming conflicts.
+
+
+
+
+https://codeshare.io/yNqeAe
+https://github.com/noteonbg/medtronicscplusmay24.git
+
+
+
+
+
+
+
+
+
+
+
+
+void f1() { do great things}
+
+auto x = f1;
+
+
+
+
+
+
+
+
+
+/*
+
+*/
+
+
+// 
+
+
+Class 
+
+what is it.
+Class is a mechanism to create a project specific data type.
+
+Class is created.
+1. see what it contains. in terms of variables and in terms of functions
+
+under private section typically you will see some variables == content of the
+data type..
+
+under public section, you will see sme functions
+think of it like operations
+
+I saw the complete class.
+ok you saw the definition of a data type.
+
+
+void f1(int j)
+{
+	j =23;
+}
+
+I am seeing a class being defined = teaching the system hey look now know
+this data type also.
+
+ I am creating object of the class. ok, first look at constructors available
+and pick one.  == Hey look I am creating the variable of the class.
+
+
+
+
+
+
+
+
+
+
+
+
+

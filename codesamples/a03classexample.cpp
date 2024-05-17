@@ -9,8 +9,13 @@ private:
 
 public:
     // Constructor to initialize the member variables
-    MedicalDevice(int id, const std::string deviceName, const std::string deviceManufacturer)
-        : deviceID(id), name(deviceName), manufacturer(deviceManufacturer) {}
+    MedicalDevice() {}
+    MedicalDevice(int id,  std::string deviceName, 
+     std::string deviceManufacturer)
+        :deviceID(id), name(deviceName), manufacturer(deviceManufacturer) {
+
+            // use id for whatever you want
+        }
 
     // Getter methods
     int getDeviceID() const {
@@ -28,7 +33,12 @@ public:
 
 int main() {
     // Create an instance of MedicalDevice
+    int             i;
+    MedicalDevice j;
     MedicalDevice myDevice(12345, "Blood Pressure Monitor", "HealthTech Inc.");
+
+
+
 
     // Access and print device information
     std::cout << "Device ID: " << myDevice.getDeviceID() << std::endl;

@@ -14,6 +14,9 @@ private:
 public:
     Person(const std::string& initialName) : name(initialName) {}
 
+     void freak() {  }
+
+
     // Function to change the name using a pointer
     void changeName(std::string* newNamePtr) {
         if (newNamePtr != nullptr) {
@@ -36,6 +39,8 @@ void usingobject() {
 
     // Modify the name using a pointer
     std::string newName = "Bob";
+
+
     person.changeName(&newName);
 
     // Display the updated name
