@@ -4033,7 +4033,79 @@ c++ 20 features
     - `std::chrono` enhancements.
     - `std::bit_cast` for type punning.
 
+-----------------------
 
+compiler provided by default
+In C++, the compiler automatically generates several **special member functions** for a class if they are not explicitly declared by the programmer. These functions play a crucial role in defining the behavior of user-defined types. Let's explore the default functions provided by the C++ compiler:
+
+1. **Default Constructor**:
+   - The compiler generates a default constructor if the class does not declare any constructor of its own.
+   - The default constructor initializes the class members (variables) to their default values.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated default constructor
+         MyClass() { /* Initialization code */ }
+     };
+     ```
+
+2. **Copy Constructor**:
+   - If the class does not define a copy constructor, the compiler generates one.
+   - The copy constructor creates a new object by copying the values from an existing object of the same class.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated copy constructor
+         MyClass(const MyClass& other) { /* Copy values from 'other' */ }
+     };
+     ```
+
+3. **Copy Assignment Operator (Copy Assignment)**:
+   - If the class does not provide its own copy assignment operator (`operator=`), the compiler generates one.
+   - The copy assignment operator allows you to assign one object's values to another object of the same class.
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated copy assignment operator
+         MyClass& operator=(const MyClass& other) { /* Assign values from 'other' */ }
+     };
+     ```
+
+4. **Destructor**:
+   - The compiler generates a destructor if the class does not declare its own destructor.
+   - The destructor is called when an object goes out of scope or is explicitly deleted.
+   - It performs cleanup tasks (e.g., releasing resources, deallocating memory).
+   - For example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated destructor
+         ~MyClass() { /* Cleanup code */ }
+     };
+     ```
+
+5. **Move Constructor and Move Assignment Operator (C++11 and later)**:
+   - Starting from C++11, the compiler also generates move constructor and move assignment operator under certain conditions.
+   - These functions allow efficient transfer of resources (e.g., memory, file handles) from one object to another.
+   - They are automatically generated if no user-declared copy constructor, copy assignment, move constructor, or move assignment exists.
+   - Example:
+     ```cpp
+     class MyClass {
+     public:
+         // Compiler-generated move constructor
+         MyClass(MyClass&& other) noexcept { /* Move resources from 'other' */ }
+
+         // Compiler-generated move assignment operator
+         MyClass& operator=(MyClass&& other) noexcept { /* Move resources from 'other' */ }
+     };
+     ```
+
+(1) Default functions in C++11 - OpenGenus IQ. https://iq.opengenus.org/default-functions-in-cpp11/.
+(2) What default functions provided by compiler in C++?. https://interviewsansar.com/default-member-functions-for-a-class-in-c/.
+(3) Default Methods in C++ with Examples - GeeksforGeeks. https://www.geeksforgeeks.org/default-methods-in-c-with-examples/.
 
 
 
