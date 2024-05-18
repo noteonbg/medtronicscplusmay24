@@ -13,9 +13,12 @@ public:
         : deviceID(id), patientName(name), deviceStatus(status) {}
 
     // Overload the > operator
+
+    #if 0
     bool operator>(const MedicalDevice& other) const {
         return deviceID > other.deviceID;
     }
+    #endif
 
     bool operator==(const MedicalDevice& other) const {
         return deviceID == other.deviceID;
@@ -56,6 +59,7 @@ public:
 int main() {
     MedicalDevice device1(1, "John Doe", "Active");
     MedicalDevice device2(2, "Alice Smith", "Inactive");
+    if(device1 < device2);
 
     
 
@@ -64,7 +68,7 @@ int main() {
     device2.displayInfo();
 
     device1 =device2; //compiler by default gave you assingment overloaded operator function.
-   #endif
+   
     device1=4; 
 
 
@@ -80,7 +84,7 @@ int main() {
 
     std::cout << i  << std::endl;
     //some how device1 needs te casted into an int.
-
+#endif
 
 
 

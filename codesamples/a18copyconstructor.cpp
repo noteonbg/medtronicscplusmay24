@@ -87,7 +87,7 @@ using namespace std;
 
 
 #if 1
-class MedicalDevice {
+struct MedicalDevice {
 private:
     string* serialNumber; // Pointer to dynamically allocated memory
     string deviceName;
@@ -96,6 +96,8 @@ private:
 public:
     // Constructor with no arguments
     MedicalDevice() {
+
+        std::cout << "constructor 1 getting called";
         serialNumber = new string("Unknown"); // Allocate memory for serial number
         deviceName = "Unnamed Device";
         manufacturerID = 0;
@@ -103,6 +105,7 @@ public:
 
     // Constructor with serial number and name
     MedicalDevice(const string& serial, const string& name) {
+        std::cout << "constructor 2 getting called";
         serialNumber = new string(serial); // Allocate memory for serial number
         deviceName = name;
         manufacturerID = 0;
@@ -130,7 +133,10 @@ public:
 
     // Destructor to deallocate memory
     ~MedicalDevice() {
-        std::cout << "destructor " << manufacturerID  << endl;
+        std::cout << "\n destructor " << manufacturerID  << endl;
+        
+        if(serialNumber == nullptr)
+            std::cout << "ok we got nullptr at serialnumber";
         delete serialNumber; // Deallocate memory for serial number
     }
 
@@ -148,22 +154,48 @@ public:
     }
 };
 
+void f2(MedicalDevice d1)
+{
+    std::cout << "\n f2 function at work \n";
+    //std::cout << d1.getManufacturerID();    
+}
+
 int main() {
     // Creating instances of MedicalDevice
-    MedicalDevice device1; // Calls the first constructor (no arguments)
+
+    {
+    MedicalDevice device1("abc123","bp meter",23);
+     // Calls the first constructor (no arguments)
+    f2(device1);
+    MedicalDevice device3 = device1;
+    std::cout << "\n device 3  " << device1.getManufacturerID();
+
+
+
+    }
+    //std::cout << device1.getManufacturerID();
+    std::cout  <<"program has ended";
+
+
+
+
+
+
+
+   #if 0
     MedicalDevice device2("SN123", "Blood Pressure Monitor"); // Calls the second constructor
     MedicalDevice device3("SN456", "Thermometer", 789); // Calls the third constructor
     MedicalDevice device4(device3);
+#endif
 
 
 
-
-
+#if 0
     // Displaying device information
     cout << "Device 1: Serial Number = " << device1.getSerialNumber() << ", Name = " << device1.getDeviceName() << ", Manufacturer ID = " << device1.getManufacturerID() << endl;
     cout << "Device 2: Serial Number = " << device2.getSerialNumber() << ", Name = " << device2.getDeviceName() << ", Manufacturer ID = " << device2.getManufacturerID() << endl;
     cout << "Device 3: Serial Number = " << device3.getSerialNumber() << ", Name = " << device3.getDeviceName() << ", Manufacturer ID = " << device3.getManufacturerID() << endl;
-
+#endif
     return 0;
 }
 #endif

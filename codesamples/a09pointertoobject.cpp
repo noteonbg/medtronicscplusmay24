@@ -4,7 +4,7 @@ using namespace std;
 
 class MedicalDevice {
 private:
-    string deviceName;
+    string *deviceName;
     string serialNumber;
     int manufacturerID;
 
@@ -19,8 +19,11 @@ public:
         cout << "Serial Number: " << serialNumber << endl;
         cout << "Manufacturer ID: " << manufacturerID << endl;
     }
+
+    ~MedicalDevice() { std::cout << "destdructor at work"; }
 };
 
+#if 0
 int main()
 {
     MedicalDevice medicalDevice("Blood Pressure Monitor", "BP12345", 1001);
@@ -29,10 +32,10 @@ int main()
 
 
 }
+#endif
 
 
-
-#if 0
+#if 1
 int main() {
     // Create a MedicalDevice object dynamically (on the heap) using a pointer
     MedicalDevice* devicePtr = new MedicalDevice("Blood Pressure Monitor", "BP12345", 1001);
@@ -42,7 +45,7 @@ int main() {
     devicePtr->displayDetails();
 
     // Don't forget to delete the dynamically allocated object
-    delete devicePtr;
+    delete devicePtr;// doing this is a mess
 
     return 0;
 }

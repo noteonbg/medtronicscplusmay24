@@ -11,11 +11,11 @@ void foo(double y) {
 
 int main() {
     // Taking the address of the 'foo' overload
-    void (*pFooInt)(int) = nullptr;
-    void (*pFooDouble)(double) = &foo;
+    void (*x)(int) = foo;
+    void (*pFooDouble)(double) =foo;
 
     // Calling the functions via function pointers
-    pFooInt(42);
+    x(42);
     pFooDouble(3.14);
 
     return 0;

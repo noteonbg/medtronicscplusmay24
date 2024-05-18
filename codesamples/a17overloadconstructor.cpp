@@ -24,7 +24,8 @@ public:
     }
 
     // Constructor with all properties
-    MedicalDevice(const string& serial, const string& name, int manufID) {
+    MedicalDevice(const string& serial, const string& name,
+     int manufID) {
         serialNumber = serial;
         deviceName = name;
         manufacturerID = manufID;

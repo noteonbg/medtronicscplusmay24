@@ -7,7 +7,20 @@ union MyUnion {
     float floatValue;
 };
 
-int main() {
+
+int main()
+{
+    std::string s ="hello";
+    std::string s1 = std::move(s);
+    std::cout  << "svalue" << s << "moved to " << s1;
+
+}
+
+int main1() {
+
+    
+
+
     MyUnion u;
 
     // Assign values to union members
@@ -45,7 +58,8 @@ private:
     } data;
 
 public:
-    MedicalDevice(const string& name, int type) : deviceName(name), deviceType(type) {}
+    MedicalDevice(const string& name, int type) : 
+    deviceName(name), deviceType(type) {}
 
     void setData(double value) {
         switch (deviceType) {
@@ -77,7 +91,7 @@ public:
     }
 };
 
-int main() {
+int main3() {
     MedicalDevice thermometer("Thermometer", 0);
     thermometer.setData(37.5);
     thermometer.displayData();

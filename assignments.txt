@@ -13,23 +13,37 @@ write 2 constructors.
 one of the constructor and call the functions present in the class.
  
 Look at a06passbyrefernce.cpp, and a21passbyreference.cpp
-write a a function called changePersonDetails whose input argument is 
-int age,string address passed by refernce, this should change the object
+write a a function called changePersonDetails whose input argument
+ is 
+int age,string address passed by refernce,
+ this should change the object
 age and address.
 
 Look at a09pointertoobject.cpp, and a21passbyreference.cpp
-write a a function called printPersonDetails whose input argument is 
-Person pointer type, this should print all the person details like
+write a a function called printPersonDetails whose input argument
+ is 
+Person pointer type,
+ this should print all the person details like
 age, name and address.
 
+
+
+
+
 Look at a23friend.cpp 
-In the person class , add a friend function similar to a23friend.cpp for comparing
-two person objects comparison should be based on age . create a new function
-called testfriend outside the class and in that call the friend function.
+In the person class , add a friend function similar
+ to a23friend.cpp for comparing
+two person objects comparison should be based on age .
+ create a new function
+called testfriend outside the class and in that call the
+ friend function.
 and then call testfriend function from the main function.
 
 Look at a25constfunctions.cpp
-add const keyword at necessary functions and variables. if need be..
+add const keyword at necessary functions and variables.
+ if need be..
+
+ 
 
 --------------------------------------------------------
 Program 3.. save Program2.cpp as Program3.cpp

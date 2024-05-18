@@ -43,8 +43,10 @@ int main() {
     MedicalDevice myDevice(123, "Patient X", "Active");
     myDevice.displayInfo();
 
+    
+
     // Get and display the category ID
-    std::cout << "Category ID: " << MedicalDevice::getCategoryId() << std::endl;
+    std::cout << "Category ID: " << myDevice.getCategoryId() << std::endl;
 
     return 0;
 }

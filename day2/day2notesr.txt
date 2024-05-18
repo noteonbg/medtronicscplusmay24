@@ -1,0 +1,527 @@
+yesterday theory.
+1. finally code means functions and variables.
+2. functions.
+2.1 functions inside class.
+2.2 fnctions outside class. main
+3. class can we look at it like a data type
+data type content+ operations.
+create a variable of a data type
+do operations.
+operations in context of class typically means calling
+functions of the class.
+
+functions, 
+input arguments
+return types
+in all these cases what matters is 
+reference  -- preferred approach in c++ to void
+making copies.
+pointer  -- use it for dynamic allocation
+what is common we are not making copies.
+
+value. you are interested in making copies... 
+overall  theme make copy only if you feel it is justified.
+when in doubt avoid copy.
+
+when you pass something as input via reference or via
+pointer, key point is that input variable is alive..
+while you are returning references or pointers, double
+check are we returning from local variables if yes
+that can cause issues.
+
+theory part tells
+constructors
+person X creates the class
+person Y is using the class
+pointers
+x is creating pointer and operating on pointer.
+y is assigning to pointer.
+
+references
+referenc created by person x.
+reference assingned by person y.
+
+we need to value collaboration..
+
+you see function definitions
+
+1. inside class  -- ask yourself do you want make
+it const..
+2. outside class
+3. for any function, input argumetns or return type
+think do you want to use const at the variable level..
+
+
+dynamic allocation.
+
+1. programmer at runtime decides to allocate memory
+2. it wont  be removed by the system, programmer has to
+remove when he feels he does not need it.
+dynamic memory allocation, we use the word heap
+how to alloate memory at runtime.
+
+in c++ we have two operators called new and delete.
+new to allocate memory
+delete to deallocate memory
+in C++ using c functions to allocate memory invitation
+for trouble.
+
+datatype *ptr =new datatype;
+example
+int *ptr =new int;
+
+MedicalDevice m=MedicalDevice();
+two objects
+
+//below one object
+MedicalDevice *md =new MedicalDevice(23,"A","def"); //constructor will
+get called.
+
+return type after allocating memory is pointer
+if we lose thea ddress we cannot deallocate memory.
+
+
+
+
+we have  a class.
+we want to create a variable of the class.
+where you want to it create at runtime or compiletime
+ok i need runtime..
+createa  pointer of data type
+new datatype( which ever constructor is relevant)
+
+smart pointers..
+what does it mean allcoate memory you do it
+by deallocation of memory allow the smart pointer to do it.
+shared_ptr
+unique_ptr
+which are both ready made classes in c++
+
+see whether you allocate one variable
+or an array..
+
+datatype *ptr = new datatype[23] //array
+delete ptr[];
+
+
+we know function called constructor in the class.
+
+we know another function destructor.
+
+function name will look like ~classname()
+this function will get called when
+
+1. object is about to removed from memory
+2. destructor of the class will get called.
+3. object is removed.
+
+when will the object be removed from memory?
+
+we have a variable of type int. when it will removed
+from memory.
+1. where is the variable present
+1.1 in heap
+1.2 in non heap.
+2. if it is not on heap, it depends on starage class.
+local variable it will removed when we come out of function.
+it is a static , it will removed when the application
+ends.
+3. if itis on heap, then we have to use delete.  only
+then the variable will be removed from memory.
+
+
+do things in a single file.
+menu1
+1. create
+2. exit
+enter your choice
+
+menu2
+1. create
+	1. heap
+        2. non heap
+
+menu3
+ 1. int
+ 2. MedicalDevice
+
+create the appropriate object.
+call some operation come out
+of the menu3, to menu1 in meanwhile
+if any cleanup has to done do it.
+
+
+
+
+
+
+
+
+
+destructor
+copy constructor.
+operator overloading.
+
+
+we are seeing dynamic allocation while defining the class for one of the members.
+in that case writing destructor becomes necessary.
+
+sometimes we make copies of objects.
+copies of objects happen when we pass a variable by value or return a variable by value.
+compiler given copy constructor that can create problems...
+
+copy constructor at work.
+
+1. lot of varations ever since c++11
+what is scenario .. we had a justified need for a destructor..
+some member variable in the class was allocated memory dynamically.
+
+
+2. we are doing some copy of variable why pass by value or return from a function
+by value.
+
+3. compiler does some optimizations.
+
+in your code base.
+1. you will see a class.
+2. you will see constructors.
+3. look for copy constructors in your class have they written or not written
+if yes...  comment the copy constructor and see the result on the code 
+4. you must see when the copy constructor is getting called, pass by value.
+5. only if your class has got dynamic allocation, need for writing a copy constructor will
+arise else you dont need anything called copy constructor written by programmer in the code.
+
+
+
+1. need for destructor
+2. when you see copies of object being made, should I write a copy constructor or not?
+2.1 optimizations does the compiler does.
+2.2 options we can give to compiler asking to generate or not generate somethings.
+3. how the syntax of a copy constructor looks like.
+
+
+
+shallow copy
+you have two objects..
+
+obj1 already created object
+
+obj2 object that is going to created based on obj1, copy constructor applies to this
+
+compiler by default provides 
+a copy constructor.
+you land up in a scenario where both the pointers are pointing to the same location..
+
+
+obj1.serialnumber =x
+
+obj2.serialnumber=x;
+
+
+obj2 gets removed from memory.
+destructor will get called obj2.serialnumber that is removed.
+
+obj1.serialnumber will point to a location that does not exist.. shallow copy
+
+deep copy
+
+
+
+
+
+
+you will see a class in your project.
+1. you will see construtors in the class
+2 are you seeing any copy constructors in the class or not.
+when I wrote a copy constructor it got called 
+when I did not write a copy constructor then also proram worked the same way.
+
+
+
+
+
+
+
+
+check list
+
+1. do we a copy of an object being created ( new object and existing object)
+2. in the class we are seeing dynamic allocation for some member. 
+3. 2 forced us to write a destructor.
+4. we know syntax of copy constructor classname(classname& y)
+
+in c++ after c++11, because many people were getting into trouble during
+making copies of object , compiler and the standard has done lot of optimizations
+move operation..
+
+
+
+
+
+
+operator overloading.. c++ point of view.
+
+1. you must have a class.
+2. we have some existing operator.
+3. we are teaching c++ compiler how to deal with our class type for this operator.
+example
+
+we have medical device object with us.
+let us call the object as m1.
+
+m1 > m2
+where m1 and m2 are objects o fmedical device
+compiler will give us an error because operator > it does not know what  to do 
+if the operand is of type MedicalDevice.
+
+we write a function  an what we do inside the function is our logic only thingwe should
+keep it consistant operator intent.
+
+
+  m1 > m2
+
+2+3
+
+m1+m2
+
+a=b;
+
+
+
+when somebody tells operator overloading
+
+1 . you have a  project specific data type
+2. you hve writtena  function whose name is operator, x indicates that operator.
+3. when you are dealing with operator in the code, the function gets called.
+
+
+
+
+
+1. need for dynamic allocation and deallocation by programmer is bad idea.
+2. when a member of the class is dynamically allocated, need for destructor.
+3. copy constructor syntax, we write one or we dont write one, code was working
+was same..
+4. operator overloading is just a function call. what you do insie the function
+is left to you.
+
+
+int &&a=3;
+
+Structures.
+
+1 are as good as classes in C++ except by default their scope is public.
+
+
+
+Union.
+
+if we have x,y,z inside a union
+memory for the largest will be allocated 
+your access is always either x or y or z and not all put together.
+
+
+
+what is difference between clas and structure in c++ no difference.
+
+class A
+{
+int k;
+}
+
+struct B
+{
+private:
+int k;
+}
+
+A obj1
+obj1.k //will not work class content is private.
+
+B obj2;
+obj2.k // structure content is public
+
+
+
+
+
+
+
+
+you have a function
+you can quality it with inline.
+then usually compiler is expected to replace function calls with the statements
+of function.
+
+
+inline int squre(int x)
+{
+return x *x;
+}
+
+int main()
+{
+3*3
+4*4
+
+}
+inline is only a suggestion to the compiler, compiler can ignore it...
+No I want to tell the compiler hey compiler nobody is aksing yoiur opinion
+make inline for me compulsorily.. ok 
+
+important thing is to know union asa concept
+inline functions ok.. have some theory.. syntax is not difficult but is implemented
+by the compiler when you say inline is what you need to look into.
+
+set(int width)
+set(int width, int breadth)
+set( int width, int breadth,int height)
+
+
+setWidth(int x)
+setWidthandBreadth(int x,int y)
+setWidthBreadthandHieght(
+
+
+Default argument is a mechanism thru whic you make input arguments to function
+assum  default value if user is not giving a value.
+
+f1(int x=3)
+{
+
+}
+
+f1(4);
+f1();
+
+void freak(int x , int  y=4 )
+{
+
+}
+
+freak();
+freak(4);
+freak(4,7);
+
+
+freak(4);
+
+
+freak(3,7);
+
+
+
+ void f1(int x)
+void f1();
+
+welcome to function pointer.
+
+create a functon pointer..you have to mention signature... and then to this pointer
+you assign the function name.
+
+void *ptr = f1;
+
+
+
+the moment we see * ... c++ approach, hide * and still keep the *
+
+pass by address  = pass by reference
+function pointer == lamda expression.Functor.
+
+
+Friend function what is it.
+
+1. you see a class.
+2. the class tells hey this function f1 is my friend.( no definition of f1 inside
+the class only declaration.. )
+3 friend function f1 is always defined outside the class.
+4. this function will now access all regions of the class including private sections.
+5. friend function is not a member function proof , no this.
+
+class JUnk
+{
+data member
+operations
+static void freak() {}
+friend void freak(); // proof Junk told hey freak is my friend.
+}
+
+static void freak()
+{
+}
+
+
+
+
+
+we have two clases A and B
+we have a function f1 in class A
+we have a function f2 in class B.
+
+in class A we can tell f2 function of class B is a friend of class A.
+
+class A
+{
+
+friend void B::f2();
+
+}
+
+•	Static Class members
+•	Const Member functions and mutable
+
+
+
+static variables
+static functions
+
+
+static variable
+1. variable present outside the class.
+2. variable present inside the function.
+3. variable present inside the class
+
+1 and 2 is c concept.
+variable present outside the class and made as static.
+if you have 
+one.cpp
+you have a global variable called x which is static in one.cpp
+that variable cannot be used in any other file other than one.cpp
+so file scope.
+
+two.cpp
+if we have a local variable called i inside a function f1, which is made
+as static, it means this local variable will continue to exist, even after
+f1 completes. storage class is static.
+
+
+3 is a c++ concept
+if we see a variable called i, which is static inside a class
+it means this variable is independent of all objects, all objects
+share the same copy of the variable.
+
+
+
+static function
+
+1. static function which is outside the class
+again function is file scope.
+we have f1 global function which is in a.cpp
+f1 has been made as static, outside a.cpp f1 is not accessible.
+
+2. static function which is inside the class
+we have a function called f2 which is static inside a class called A.
+it means this function f2 does not need an object.
+this function f2 cannot access non static variables directly.
+no access to this.
+
+
+
+const keyword and its usage.
+C 
+static
+1. non local variable
+2. local variable.. local varible is local but alive for longer time.
+
+static function
+function access restricted to the file.

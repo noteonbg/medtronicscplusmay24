@@ -10,7 +10,8 @@ private:
 
 public:
     // Constructor with default argument for status
-    MedicalDevice(int id, const string& name, const string& s = "Active")
+    MedicalDevice(int id, const string& name,
+     const string& s = "Active")
         : deviceID(id), patientName(name), status(s) {}
 
     void displayInfo() {

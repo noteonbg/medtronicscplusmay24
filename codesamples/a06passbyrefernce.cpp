@@ -10,8 +10,8 @@ public:
 };
 
 // Function to change the name using a reference
-void changeName(Person& person, const string& newName) {
-    person.name = newName;
+void changeName(Person& x, const string& newName) {
+    x.name = newName;
 }
 
 int main() {

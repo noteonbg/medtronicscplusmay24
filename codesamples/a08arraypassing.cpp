@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#if 0
 // Function to modify an array (pass by pointer)
 void modifyArray(int* arr, int size) {
     for (int i = 0; i < size; ++i) {
@@ -21,9 +22,9 @@ int main() {
 
     return 0;
 }
+#endif
 
-
-#if 0
+#if 1
 
 // Function to modify an array (pass by reference)
 void modifyArray(int arr[], int size) {

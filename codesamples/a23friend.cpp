@@ -12,7 +12,12 @@ public:
         : deviceID(id), patientName(name), deviceStatus(status) {}
 
     // Declare the friend function
-    friend void compareDevices(const MedicalDevice& device1, const MedicalDevice& device2);
+    
+    friend void compareDevices
+    (const MedicalDevice& device1,
+     const MedicalDevice& device2);
+    
+
 
     void displayInfo() const {
         std::cout << "Device ID: " << deviceID << std::endl;
@@ -22,7 +27,7 @@ public:
 };
 
 // Friend function definition
-static void compareDevices(const MedicalDevice& device1, const MedicalDevice& device2) {
+ void compareDevices(const MedicalDevice& device1, const MedicalDevice& device2) {
     if (device1.deviceID == device2.deviceID) {
         std::cout << "Devices have the same ID." << std::endl;
     } else {

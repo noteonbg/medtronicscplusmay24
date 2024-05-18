@@ -181,6 +181,295 @@ this data type also.
 and pick one.  == Hey look I am creating the variable of the class.
 
 
+Datastructure
+1. group
+2. we have some operations to perform
+3. based on this pick one from the library.
+
+when you pick one from library we have to find out what is library way of doing
+some operations like sort or search..
+
+broad choice
+1. linear  array or linkedlist
+2. graph based ones.. Dictionary Map or set.. optimized for searching or sorting. 
+
+I want to add something and print all of its content.. . you need array.
+high usage of array.
+
+I want to put something as key and value.. operate things based on key..
+you need a Dictionary or  Map. lot of usage will be there in this.
+
+
+
+
+
+int x[4];// 
+each element here is an int and size is fixed at 4
+
+Device x[4];
+each lement is of Device type and size is fixed.
+
+I dont know size, i cannot operate on array typically.
+
+how to pass arrays to function and how to return array
+from function.
+
+int f1()
+{
+
+int k =4;
+return k;
+
+}
+
+int main()
+{
+int m = f1();
+cout << m;
+
+}
+
+
+
+
+
+create a 2 element array of Person
+in the main,
+pass it to function f1 as input argument
+and then assing the  first element id as 1, name as a, address a b
+..
+and come back to main and print the contents of the array.
+
+
+
+
+
+
+POinter.
+
+1. pointer is a variable.
+2. it will point typically non pointer variable.
+3. when we operate we should know whether we are operating on the pointer
+or what the pointer is pointing to.
+4.why use pointer 	
+	to avoid making copies.  ( in c++ we have a concept references)
+	dymamic memory allocation at runtime programmer wants to allocate memory
+
+
+
+
+
+
+
+int *ptr =nullPtr;  // indicating the ptr is pointing no where..
+
+
+int has not no meaning for this ptr, it has all the meaning for what the ptr
+points to.
+
+int x =3;
+ptr = &x;
+
+by telling ptr, we are not operating on what ptr points to rather operating
+on ptr itself we are telling this point points to the int variable x.
+
+
+*ptr =23; we are not operating on the pointer, we are operating
+on what the pointer is pointing to ie on x.
+
+
+MedicalDevice device;
+MedicalDevice *p =nullptr;
+p =&device;
+//since ptr is of class type
+you can use ->
+p->getDeviceInfo(); //z
+-> indicates we are operating on the pointer.
+
+(*p).getDeviceInfo();//z
+ptr++ or ptr-- // these are signs somebody wants to create trouble 
+
+harmless variation
+
+ptr[2]
+
+
+
+-> operator on the ptr indicates that we are operating on content
+and not on the pointer..
+
+
+
+
+this pointer.
+
+1. There is a function in the class, which is non static.
+
+
+
+
+
+class A
+{
+private:
+
+public:
+	void set(){ std::cout <<  "set method" }
+	static A f1() {  put gun treatments..  A obj; return obj }
+}
+
+int main()
+{
+A obj=A::f1();
+A obj1=A::f1();
+}
+
+
+
+
+
+
+
+
+this.
+1. this is a local pointer created automatically
+inside non static functions of the class.
+2. it will point to  the calling object.
+3. why we should use it.
+3.1 method chaining.
+3.2 when a local variable and member variable
+are with the same name.
+
+
+class A
+{
+private:
+	int i;
+public:
+	void seti(int k)  { this->i =k ;}
+
+}
+A obj, obj1;
+obj.seti(3);
+obj1.seti(4);
+1. inside obj and obj there will separate copy of i.
+2. seti function is notspecific to any object.
+3obj.seti , how will set i that it needs to change i of obj or obj1
+4.becuase it knows this.
+
+Reference
+1.it is an alias for an existing variable.
+when you create a reference we should mention
+for which variable it is an alias .
+
+int i;
+int  &k=i;// a reference called k is created for i.
+k=44;/results in i being changed
+
+
+we cannot write int&k  and leave it.
+
+& I am getting confused no way...
+
+&variablename without any data type that means it address.
+datatype &variablename, reference creation.
+once you create refernce you must use variable name and not &variablename.
+
+
+
+int m =3; x
+int  &n=m; y
+n =44;
+print m//44 kids program 
+
+if you see x and y in the same function
+it means y is not needed.
+
+void f1(int &n)
+{
+n=4;
+}
+
+int main()
+{
+int m=3;
+f1(m);
+std::cout<< m
+}
+
+
+
+int& f1()
+{
+int n=4;
+return n;
+}
+
+int main()
+{
+int &m =f1();
+std::cout<< m
+}
+
+when you return reference or pointer from a function
+ensure the variable for which the reference is created or pointer is pointing
+to is alive and is not a local variable.
+
+rvalue and lvalue.
+
+rvalue and lvalue are with respect to assignment operator..
+
+
+a=2;
+2=a;// why 2 is rvalue.. rvalue typically is not associated with any memory region...
+variable is associated with memory...
+if you want sometimes temporary variables which are created 
+
+3;
+
+
+MedicalDevice d;
+or
+MedicalDevice() -- temporary variable...
+
+in c++ 11 onwards...  you have concept of rreferences
+
+
+
+int &&k =23; temporary variable gets stored in a reference
+
+
+//if this was an intent it is ok
+const int &k =23;
+k =24;
+
+
+medicalDevice f1()
+{
+MedicalDEvice d(23,"A","C");
+return d;
+
+}
+
+MedicalDevice m =f1(); // copy of k that is getting created
+
+
+int &k // this is your normal lreference.
+int &&k // this is r reference as of now we will keep
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
