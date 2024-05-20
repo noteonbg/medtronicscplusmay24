@@ -3,6 +3,7 @@
 class Window
 {
     public:
+        void shortcutmenu();
         void setWindowId(int);
         int getWindowId();
         void setIconType(int);
@@ -13,6 +14,10 @@ class Window
         int windowId;
         int iconType;
 };
+
+
+
+
 
 void Window::copy()
 {
@@ -107,6 +112,7 @@ int main()
     calcWindow.setWindowId(23);
     calcWindow.setTypeofCalculator(1);
     calcWindow.setIconType(4);
+    calcWindow.copy();//
 
     return 0;
 }
@@ -124,19 +130,44 @@ int main()
 
 #endif
 
+//person Y logic
+void proofOfRuntimePOlymoprhism(Window *w)
+{
+    w->copy();
+
+}
+
+//person X logic
 int main()
 {
-    Window *w=new PaintWindow;
+    Window *w=nullptr;
+    w= ?;
     w->setIconType(1);
     w->copy();// this is runtime polymorphism.
+
+    // below line first check whther w points to PaintWindow
+    //or not aand if its points to PaintWindow only then
+    //typecast pointer.
+    PaintWindow* pw = (PaintWindow*)(w);//horrible code
+    pw->setGraphicsView(4);
     
+    
+    
+    delete w; //if base class destructor is not virtuual
+    //then PaintWndow class desdtructor will not get called.
+
+
+
+
+
+   
     CalcWindow *cw = dynamic_cast<CalcWindow*>(w);
     if( cw != nullptr)
         cw->setTypeofCalculator(44);
     else
         std::cout <<" did not have a calculator object";
     // ok tell hwo to acess copy of windows thru w.. that is absurd why did we overirding.
-    
+   
     return 0;
 }
 

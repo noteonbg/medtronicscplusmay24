@@ -4,7 +4,7 @@
 namespace MedicalDomain {
 
     // Template class for vital signs
-    template <typename T>
+    template <typename T,typename Q>
     class VitalSigns {
     private:
         T heartRate_;

@@ -1,0 +1,532 @@
+most summary of last 2 days
+
+1. class is a data type.
+1.1 content
+1.2 operations
+1.3 constructors, operator overloaded functions, friend functions.
+
+2. when we look at functions
+focusing on input and return type.
+type of input and type of return type
+datatype
+whether it is a reference or a value or a pointer.
+
+3. when we are passing or returning value concept called copy constructor.
+
+4. lot ofusage of const...
+const variable
+const variable which belongs to some class, then it can access only const
+functions
+const function
+
+
+
+
+
+Object oriented implementation in c++
+copy constructor when to write .. move operations..
+templates
+exception handling.
+
+what is meaning of object orientedness.
+
+1. abstraction**  ==future proof, loosely coupled...
+2. encapsulation -- class
+3. relationship between classes**
+4. namespaces or packages..
+** are place which will consume lot of time in a project.
+
+abstraction -- syntax -- interface..
+relationship between classes == we are creating a new data types based
+on existing classes..  dependency, Association( Aggregation and Composition)
+and INheritance..   -- at code level scope of variables.
+
+
+abstraction.
+1. you know what function does.
+2. but how does you dont need to care.
+
+
+dependency
+
+lowest kind of relationship between two classes.
+
+class A
+class B
+  public void f1( A  &obj) {  }
+
+Association  A "has  a" B
+class A
+     private B obj;
+
+void f1(){}
+void f2() { }
+f1 and f2 need to use the same B object
+and f1 does not call f2 neither does f2 call f1that means
+B object cannot be local to f1 or f2.
+
+Association
+we have two classes
+X and Y
+inside we see Y class member.
+
+member.. association comes in two flavours ..
+
+1. Aggregation part is not created inside the whole example Mobile and Sim
+2.Composition  part is crated inside the whole, MObile and Battery.
+
+class Mobile
+{
+	private:
+		Sim *sim; // aggregation
+		Battery battery; //composition
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+B depends on A for the function f1.
+
+
+
+
+
+
+association ( aggregation and composition)
+
+
+inheritance.
+
+1. we are making hierarchies...
+
+when we make hierarchy why.
+1. generalize the thing.
+2. we want to get something called runtime polymorphism.
+
+English wise lot of things may look good... but
+the mobile needs all features of the battery. so
+let us make mobile as the subclass  and battery as the super class.
+so that mobile object gets all featuresof the battery.
+
+subclass "is a " super class
+Mobile "is a "  Battery 
+
+when we say inheritance, always begin with a "is a" test
+valid terminology in c++
+
+base class
+derived class
+or in oo, super class and subclass
+immediate base class, immediate derived class.
+
+to tell you are inheriting... what are we inheriting?
+in terms of code base class member variables..
+
+class Base
+{
+no variables
+public:
+	some functons
+};
+this class is not worth inheriting.
+
+Derived class should have some variables...
+
+
+what is hello world inheritance.
+
+1. put is a test.
+2. check base class and derived class both should have non static variables.
+3. syntax for telling this is derived class, this is the base class.
+4. create the object of derived class.
+5. know derived class object inside it will have both base class vaiables
+and derived class variables.
+class DErived:public Base
+6. thru derived class object call the function of base class,
+call the function of derived class.
+
+what is advantage with hierarchy making.
+
+
+
+
+
+advantage of inheritance.
+
+1.you add a feature to the base class
+2. you dont need make any changes in the derived classes.
+3. all objects of the derived class will have access
+to new feature added in the base class.
+
+Runtime polymorphism.
+behavior depending on context.
+how do get it going in code.
+
+1.  you need inheritance or interface.
+what do you get because of this.
+
+
+X type of pointer = assign Y type of object.
+
+MedicalDevice *ptr =new DiagnosticDevice;
+//DiagnosticDevice is a derived class of MedicalDevice.
+
+substitutability.
+Base class ptr can be assigned with any object of derived class
+
+overriding.
+1. you have a derived class object.
+2. there is a function in the base class.
+3. this base class function is not relevant or not sufficient for the
+derived class object.
+4. so what should derived class do now, have a function with the same
+signature as the base class in the derived class but implementation will
+be different.
+
+what is runtime polymorphism.
+1 we are having a base class pointer and we dont know which object
+is getting assigned to it.
+2. using the base class pointer we call the overridden function 
+this is called as runtime polymorphism, becase which function gets called
+compiler will not a have clue, it will decided based on type of object
+assingned to base class pointer.
+
+as a base class owner
+
+he has to decide which functions must be overridden which functions
+should not be overridden...
+
+we a pointer or referece of base class.
+100% sure we dont have abase class object.
+
+we assign with derived class object
+if there is a hierarchy, there will be many derived classes.
+which object is getting assigned to the base class pointer.
+we dont know.
+we are calling a vritual function thru base class pointer.
+so we tell which function gets called depends on type of object
+that gets created.
+
+
+
+
+on virtual functions of the base class should be considered for
+overriding.
+
+non vritual functions if we override  we only improve typing..
+
+
+
+
+
+
+
+
+
+
+
+
+class Person
+	assume varibles
+public:
+	  void setAge(const int &age);
+	  virtual void work();
+
+class Farmer:public Person
+
+class Nurse:public Person
+
+
+void findOut(Person *P)
+{
+	p->work();
+
+}
+
+
+
+
+Person *P =new Nurse();
+p->work();
+
+Nurse *n =new Nurse();
+p->work();
+
+
+
+object of the derived class
+assigned to base class object
+answer this can be done, we land up in logical mess.
+
+
+
+x =Animal();
+
+
+
+A *obj=new A;
+
+
+Constructor and destructor during "derived class object creation"
+when derived class object is removed from memory
+
+1. when we create a derived class object.
+base class constructor will get called
+derived class constructor will get called.
+only thing, if the base class has got constructors with arguments that constructor
+will never get called automatically during derived class object creation
+that needs to be called explicitly in the derived class constructor.
+
+
+destructor during derived class object being removed.
+
+1. destructor of derived class and then destructor of base class.
+but we know we have a problem.. 
+
+
+derived class object can be assigned to a base class pointer.
+if the object is on stack , no virtual destructor needed.
+but if object is on heap, programmer is responsible for deallocation.
+when we tell delete baseclassptr; despite the base class ptr pointing to
+the derived class object, only the destructor of base class gets called.
+destructor of derived class is not getting called.
+to ensure 
+destructor of derived class is getting called.
+we have a base class ptr pointing to a dynamically allocated derived class object
+we have to make the base class destructor virtual only then
+we can be sure that derived class destructor and then base class destructor will get called.
+
+
+
+
+A *ptr = ?
+delete ptr;
+compiler by default looks at what type of ptr, A
+it will destructor of A.
+
+delete ptr. dont type look of ptr, look at what ptr is pointing to and then decide
+your destructor call.. you make the destructor virtual.
+
+A *ptr =new B();//100% i know always i will have only B ok then why A *ptr, create a B *ptr.
+
+
+good practice..
+1. have a base class with virtual function do write a virtual destructor.
+
+
+
+
+
+base class ptr =new DerviedClassbject why are you doing this.
+we wanted runtme polymorphism.
+
+
+Window *w1 =new CalcWindow;  // we want rtp
+CalcWndow *w =new CalcWindow;  // no rtp
+
+w and w1 differences 
+
+w1 will never access functions which are exclusive to calcWindow.
+
+
+? you get choices..
+
+Person	  virtual work, non virtual setage , setname
+Doctor   speciality, work , doSurgery
+Police    rank, work, controltraffic
+
+Person *P = getSomePerson()
+p->work();//rtp was there
+
+
+// in case it is police ask him to control traffic
+Police *p = (Police*)(p);// this will be a mess if p was pointing to a Doctor.
+
+Police *p = dynamic_Cast<Police*>(p)
+if( p != nullptr)
+		p.controlTraffic();
+else
+	 p is not pointing to police object
+
+
+
+dynamic cast.
+
+1. we have runtime polymorphism, ie base class ptr and we dont know which object is pointing to .
+2. we need to access exclusive function of some derived class, base class ptr will not allow youto accessit.
+3. we have to typecast the the base class ptr to derived class ptr.
+4. but we have to check what type of object the base class ptr is pointing to first.
+5. doing this is called as RTTI. RunTime Type Identification, in c++ syntax for doing this is dynamic_cast
+6. dynamic_cast will try to typecast the base clas ptr to derived class ptr provided the base class
+ptr points to the correct derived class object, in case it is not correct derived class object, then
+it will return nullptr.
+
+
+
+
+
+
+
+
+
+
+base *ptr =new Derived;// rtp.
+
+Window *w =new PaintWindow;
+
+
+abastract class
+pure virtual function
+interface
+
+
+
+Exception hanlding.
+Templates.
+
+Exception handling.
+
+background.
+
+1. focus is on functions.
+2. lines in the function can be of two kinds
+2.1 statements.
+2.2. function calls.
+3. it is important to be rational...
+3.1 do we know which line in the function can cause trouble.
+3.2 is the trouble recoverable.
+3.3 what is solution for the trouble in case it is recoverable.
+3.4 are we the person who should give a solution let the caller of the function decide.
+
+exception hanlding.
+
+
+1. we have a function
+2. when some lines in the function are running, there can be trouble. 
+usually it means some object is created and thrown.  ==exception has occurred.
+3. when exception occurred, what to do.
+3.1 if i know context I will write try and catch and handle the exception.
+3.2 if i dont know context, let the exception propogage to the caller of the function and let him
+decide what to do.
+4. if we are using standard exceptions ,exception is an object, it has got a method called what
+whicjh will use the details of the trouble.
+
+what is advantage of exception handling.
+separation of normal flow of code from error rectification flow.
+
+try
+{
+open the file
+read the file
+close the file.
+}catch( ...)
+{
+
+}
+
+new for dynamic memory allocation, if new fails it will throw bad_alloc exception..
+
+
+
+Templates.
+
+1. data type independent of way of writing codes.
+I have a function or a class, whose logic can be written in a data type independent way.
+identifying this in a project is  a challenge and not the syntax of templates.
+
+
+template is a way thru which you can avoid overloading..
+
+
+will you use templates in your code answer is yes, most of times via the libraries
+given by some other person..
+
+
+templates.
+1. are we creating a template function or a template class
+2. are we calling the template function or using the template class ( creating an object)
+
+template function f1.
+and you are using this with n number of data types
+usually n number of copies of function is getting generated by compiler
+is called instantiating the templates.
+
+
+exception handling. rationality part is more important than the syntax.
+remmebr if we dont know context no business suggesting solutions.
+
+templates
+1. are we defining template functions or creating template classes
+2. are we calling the template function and using the template classes ** probability is high
+
+
+template <class P, class S>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

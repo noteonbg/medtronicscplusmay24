@@ -2,7 +2,7 @@
 #include <iomanip>
 
 
-#if 0
+#if 1
 // Medical domain namespace
 namespace MedicalDomain {
 
@@ -19,8 +19,8 @@ namespace MedicalDomain {
 
 int main() {
 
-    char c = MedicalDomain::calculateBMI('a','b'); // template is instantiated.
-    double d = MedicalDomain::calculateBMI(2.3,4.4);
+    char c = MedicalDomain::calculateBMI<char>('a','b'); // template is instantiated.
+    double d = MedicalDomain::calculateBMI<double>(2.3,4.4);
 
 
 
