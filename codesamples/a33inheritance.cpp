@@ -3,11 +3,14 @@
 class Window
 {
     public:
+       
         void shortcutmenu();
         void setWindowId(int);
         int getWindowId();
         void setIconType(int);
         virtual void copy();
+        virtual void whatshouldappear()=0;
+        virtual ~Window()=default;
         
     
     private:

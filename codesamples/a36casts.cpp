@@ -37,7 +37,7 @@ int main() {
 
 
     // Using reinterpret_cast to reinterpret the address
-    int* agePointer = reinterpret_cast<int*>(&constPatient);
+    int* agePointer = reinterpret_cast<int*>(&nonConstPatient);
     std::cout << "Reinterpreted age: " << *agePointer << std::endl;
     // Using static_cast to convert between related types
     Patient* anotherPatient = new Patient("Bob", 25);

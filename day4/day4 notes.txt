@@ -1,0 +1,22 @@
+class IDeviceIntegration {
+     public:
+         virtual void connect() = 0;
+         virtual void fetchData() = 0;
+     };
+
+Here you see a class, but dont see any variables or functions with definition
+in the class, such a thing in OO is called as interface It will act
+like a contract to enforce something on a class, example.
+
+class HeartRateMonitor : public IDeviceIntegration {
+     public:
+         void connect() override {
+             // Implementation for connecting to heart rate monitor
+         }
+         void fetchData() override {
+             // Implementation for fetching heart rate data
+         }
+     };
+
+class HeartRateMonitor : public IDeviceIntegration , This line should
+be read as HeartRateMonitor is a realizaation of the interface IdeviceIntegration.
