@@ -1,3 +1,6 @@
+vasu.lv@gmail.com
+9945276588
+
 1. assignments.txt contains assingments which needs to be done.
 
 2. code samples contains the files which we discussed in the class.

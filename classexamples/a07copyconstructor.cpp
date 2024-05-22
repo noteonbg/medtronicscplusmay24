@@ -1,5 +1,6 @@
 #include <iostream>
 
+#if 1
 class A
 {
     private:
@@ -30,6 +31,7 @@ class A
         ~A() {std::cout << "destructor called  "<<  *x <<"\n "; delete x; }
 
 };
+#endif
 
 
 #if 0
@@ -49,7 +51,7 @@ return 0;
 
 #endif
 
-#if 0
+#if 1
 // compiler given copy constructor is giving problems. 
 void f1(A obj2)
 {
@@ -70,15 +72,16 @@ int main()
 {
 
 
-#if 1
+#if 0
 A obj(44);
-std::cout <<"hello world\n "  << obj.getx() << "\n" ;
 f1(obj);
-
+std::cout <<"hello world\n "  << obj.getx() << "\n" ;
 #endif
+
+#if 1
 A temp1 = f2();
 std::cout <<"temp1  world\n "  << temp1.getx() << "\n" ;
-
+#endif
 return 0;
 
 }
@@ -121,7 +124,7 @@ return 0;
 #endif
 
 
-#if 1
+#if 0
 class B
 {
 

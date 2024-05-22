@@ -1,8 +1,115 @@
+
+Template typename or class
+
+typename is more recent one when compared to class.
+
+
+
+
+
+
+
+quick summary
+
+1. create new data types
+
+1.1 association
+1.2 inheritance.
+when it comes to inheritance.. what would be basics to test.
+derived class object creation
+implication of virtual function on the derived class.
+in case we have dynamic allocation, then need for virtual destructor.
+1.3 freak thing but ok to know dynamic_cast.
+
+2. rationality part in exception handling.
+when we see other people function call then trying to open documentation
+how the function behaves what exception throw.
+
+3. templates .. generic code ie we writing some logic independent of data type
+function
+class
+
+Abstract class.
+pure virtual function
+virtual void f1()=0
+
+we are inside a class.
+1. non static functions
+1.1 constructors
+1.2 destructor
+1.3 operator overloaded funtions
+1.4 virtual function  -- hey you may override.
+pure virtual functions --100% you must override the function.
+1.5 non virtual function  -- you are telling derived class hey not worth
+overriding.
+2. static functions
+
+Abstract class.
+1. 2. it will be a base class.
+3. there will  be a pure virtual function.
+4. no point creating object of abstract class because it does not exist
+in real life..
+5. abstract class functions and constructors are called by the derived class objects.
+
+interface..
+1. what is interface
+
+unit of abstraction and we get loose couplilng...
+we create a standard.
+
+what is interface -- abstraction, contract
+what is a class  -- encapsulation, data type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 class IDeviceIntegration {
      public:
          virtual void connect() = 0;
          virtual void fetchData() = 0;
      };
+
+
+class DiagnosticDevice:public IdeviceIntegration
+// DiagnosticDEvice is  realization of the interface IdeviceIntegration.
+
+class TherepeaticDevice:public IDEviceIntegration
+//
+
+
+
+Application
+
+IdeviceIntegratation *x =?
+x->connect();
+x->fetchdata();
+
+
+
+
+
+
+
+
+
+
+
+
 
 Here you see a class, but dont see any variables or functions with definition
 in the class, such a thing in OO is called as interface It will act
@@ -20,3 +127,409 @@ class HeartRateMonitor : public IDeviceIntegration {
 
 class HeartRateMonitor : public IDeviceIntegration , This line should
 be read as HeartRateMonitor is a realizaation of the interface IdeviceIntegration.
+
+
+I want to do oo design.
+
+1. show me interfaces used in your project.
+2. show me relationship between classes
+3. classes
+4. namespace  avoid conflicts.
+
+multiple inheritance.
+1. derived class having two immediate base classes and  you haveto prove
+taht the base classes are base classes and not interfaces.
+if you see this , you can say we have multiple inheritance.
+
+
+class C:public A, B
+
+open A and B
+all you see is just pure virtual functions then
+this is not inheritance.
+product which agrees to two standards.
+
+
+class C:public A, B
+in A and B i see non static variables, I see constructors.. ok
+then it is multiple inheritance... the problem this will be slow..
+
+
+diamond problem = rhombus problem
+
+I am using virtual keyword during inheritance.
+
+1. at what level 
+1.1 function level  - runtime polymorphism.
+1.2 class level.   -- there is multiple inheritance, 
+and there is a rhombus problem
+
+class A:virtual B
+
+
+private
+public.
+
+protected..
+1. a resource in the class which is accessible inside the derived classes
+but not by an object of the derived class.
+
+
+class A
+{
+private x
+protected y
+
+}
+
+class B:public A
+{
+public void f1() { y
+
+}
+
+int main()
+{	
+	String s="hello"
+	s.toUppercase();
+	print s
+}	
+
+
+
+
+
+security is a function of process * technology
+if we insult it only as technology we fail all times.
+
+
+1. interface.
+2. abstract class.
+3.  protected and virtual inheritance...
+
+
+cast is a assignmentoperation... rhs does not change.
+
+
+
+double k = 1.3;
+int i =static_cast<int>k;
+
+reinterpretcast...
+you have two type X and Y which are not related
+you want to cast X to Y, reinterpret cast is good.
+
+A obj;
+char *c =reinterpret_cast<char*>(&obj);
+
+const cast is used to remove constness of  pointer.
+
+1. we are in rtp
+1 use dynamic_cast if intent is to call the exclusive function of derived class.
+
+2. static_Cast
+if things are related and you want to cast... double to int..
+
+3. const_Cast no much of change of using it
+
+4. reinterpret cast no much of 
+
+
+
+
+1. interface concept, how interface is different from a class.
+2. types of cast.. dynamic_Cast, static_Cast..
+
+
+
+1. smart pointers
+
+dynamic allocationdone by programmer is ok.. but deallocation is pain.
+if somebody tells hey you allocate memory I will deallocate memory it is a good
+feature to have..
+a mechanism to do this is called as smart pointers.
+
+unique pointer, it takes owner of a resource..
+
+
+what does it mean in code,
+use the class called unique_ptr and shared_ptr
+how to create object of these classes and call its non static functions.
+both of these are templatized classes.
+
+
+if you are making uniqueptr or shared ptr..
+1. is this a member of the class 
+2. if yes.. remember have to assing to the pointer inside the constructor.
+but important observation that when you are using unique pointer
+and shared pointer, we dont need to use delete operator.
+
+
+makeshared
+makeunique
+both these functions create the object to heap.
+so technically speaking if you are using unique pointer and shared pointer
+we dont need to use both the words new or delete.
+I wont use new...
+
+make_shared
+make_unqiue
+
+
+mutable scope..
+
+1. we see a class.
+2. we see member variables inside the class.
+3. we see const functions inside the class.
+4. in const functions you cannot change member of the class.
+5. if you make member variable as mutable you can change it.
+
+
+
+
+
+
+
+
+
+
+datastructures.
+
+first sin is choosing datastructures by looking at names..
+tell me what operations taht you are doing.
+what will content of the datastructure.
+then go to the library and find out which one to use.
+
+
+when it comes to using.
+1. creating the object of the ds.
+2. respecting other person design.
+
+broad category
+normal notebook  -- linear ds  -- Array, dynamic arrays (Vector)
+indexed notebook --non linear ds   -- Map, Set
+in any language DS is always independent of its content
+in C++, things are templatized.
+
+
+what does STL
+
+1.containers.. which is dAtastructures
+2. iterators.. how to navigate
+3. algorithms ( search, sort, copy...)
+
+
+what is a datastructure.
+1. i have group of things.
+2. some operations to perform
+3. from the library i will pick one which help in the operations.
+
+what may be content?
+array or dynamic array
+what will content in  a typical project, some project specific data type.
+
+Map  Dictionary 
+key and value
+operations are based on the key.
+get value specifying the key
+iterate thru the map.
+
+
+
+we have vector of MedicalDevices
+here i have to know each element medical device
+
+we have vector of MedicalDEvice*
+pointer type.
+
+MedicaDevice *x =new DiagnosticDevice();
+
+
+Mobile *m =new iPhone();
+//forget accessing app store.
+
+
+
+lamda expression
+
+1. you are writing a function
+2. you are also assigning a function
+what you are not doing is calling the function.
+
+
+void f1()
+{
+int i =3;
+[i](input arguments needed for the lamda )=>returntype{ body of the function }
+
+}
+
+
+string ="a to z"
+Map<string,int>
+
+
+
+
+
+
+List
+
+1. create a vector
+2. how to add elements.
+3. how to search
+5. how to access each element iterator..
+
+Map
+1. how to create a map
+2. how to access the value specifying the key at.
+3. how to iterate thru the map.
+
+
+syntax perspective in STL
+
+1 templatized classes and templatized functions
+2. tonnes of operator overloading.
+
+lamda expression. we should what the other person is expecting.
+creation of function and assignment of function, done in one line
+practically.
+
+int i=3;
+cout << i;
+
+
+cout and cin both work becuaseof operator overloading.
+
+std::cout << "hello"
+
+cout belongs to a class called ostream.
+ostream class is not owned by us.
+
+MedicalDevice d;
+cout << d;
+
+Ostream class "<<" operator is not knowing how to deal with MedicalDevice object.
+we cannot ostream class.
+theory we should << symbol operator can be written as global function.
+
+
+
+
+STL
+1. container vector, array and map
+2 operations on vector (create, add, search, view all)
+operations on map (create, add, get based on key, view all)
+3.  find_if on vector, erase_if on  map, sort on a array)
+
+
+what is the signature of copy constructor..
+A(const A &x)
+
+if you are using dynamic memory allocation and we are making copies
+write a poc to prove that without writing copy constructor we are getting trouble.
+
+
+
+Process.
+
+
+multiple files, only way to open is know architecture.
+
+coding style in C or c++
+
+adding of two numbers.
+1. person X who is owner of adding of two number function
+2. person Y who is caller of addin of two numbers.
+3. typically we want to ensure Y does not change any code written by X.
+
+X will write add.cpp and convert that into a library ( static or dynamic)
+library, library is binary file... content not visible to user neither 
+understandable to Y.
+how will Y come to know what is there in the library.. header file will act that role
+header file is a documentation for what you have in the library..
+
+X 
+1. class declarations
+2. function declarations
+x will write in a header file.
+
+function definitiosn
+defintions of class functions
+X will write in a cpp file
+
+and then tool hey make a library for me.
+
+X output
+1 . library
+2. header file.
+
+Y do.
+1. make use of the library.
+2. know how to use library by looking at the header file.
+3. write a cpp, call functions
+4. compile the code. library will get linked to Y code 
+
+
+when we compile we dont formally compile .h files..
+
+we have included .h files.
+
+if your source code has x lines 
+if you header file has y lines
+total compilation x+y lines.
+
+
+
+
+
+
+
+
+
+c++ file and you want to make a library.
+you should c++ file and header file  because in c++ you would included the header.
+
+
+how to create a library.
+1. static library
+2. dynamic library.
+
+static library..
+on which compiler.
+make tool.
+
+
+function f1, it says hello.
+we made a libary out of it.
+
+we have an application called x, we are using this library
+static library becomes part of our application x.exe
+x .. hello
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

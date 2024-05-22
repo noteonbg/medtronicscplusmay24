@@ -6,7 +6,8 @@ public:
     A(int x) {
         cout << "This is a parameterized constructor\n";
     }
-    A() = default; // Compiler-generated default constructor
+    A()=default
+    } // Compiler-generated default constructor
 };
 
 int main() {

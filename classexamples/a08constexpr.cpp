@@ -77,7 +77,7 @@ int main() {
     std::cout << "Factorial of 5: " << fact_5; // Output: 120
     const int check = doubleit(2);
     static_assert(fact_5==120);
-//    static_assert(check == 4);
+    static_assert(check == 4);
     assert(check ==4);
     return 0;
 }

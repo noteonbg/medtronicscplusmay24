@@ -2,6 +2,16 @@
 #include <array>
 #include <iostream>
 #include <string_view>
+#include <vector>
+
+template<typename X>
+class A :public std::vector<X>
+{
+
+
+};
+
+
 
 struct Car
 {
@@ -11,6 +21,8 @@ struct Car
 
 int main()
 {
+
+  A<int> obj;
   std::array<Car, 3> cars{ { { "Volkswagen", "Golf" },
                              { "Toyota", "Corolla" },
                              { "Honda", "Civic" } } };

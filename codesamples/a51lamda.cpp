@@ -15,15 +15,23 @@ int main(){
    //Declaring a lambda function and calling it through a name
    
 
-   /*
+   
    int victim =2;
    auto func = [victim](){
-       std::cout << "Hello World!" <<victim<<  std::endl;
-       
-       
+      std::cout << "Hello World!" <<victim<<  std::endl;
+      
    };
+   
+
+
+
+
+
+
+
+
    func();
-*/
+
 
 
 

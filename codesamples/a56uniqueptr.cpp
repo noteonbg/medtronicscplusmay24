@@ -1,7 +1,30 @@
 #include <iostream>
 #include <memory> // Include the <memory> header for unique_ptr
 
+#if 1
+class A
+{
+    private:
 
+        std::unique_ptr<int> i;
+
+    
+    public:
+    A()
+    {   
+        i = std::make_unique(int);
+
+    }
+
+    ~A()
+    {
+
+    }
+
+}
+
+
+#if 0
 struct B
 {
     virtual ~B() = default;
@@ -27,12 +50,9 @@ int main()
     up->bar();
 }
 std::cout <<"main function";
-
-
-
 }
 
-
+#endif
 
 #if 0
 struct MyClass {

@@ -45,9 +45,10 @@ int main() {
     // Find a device by name (e.g., "Thermometer")
     std::string targetDeviceName = "Thermometer";
     auto it = std::find_if(deviceList.begin(), deviceList.end(),
-                           [targetDeviceName](MedicalDomain::MedicalDevice device){
-                               return "device.getName() == targetDeviceName";
-                           });
+                           [targetDeviceName]
+                           (MedicalDomain::MedicalDevice device){
+                               return device.getName() == targetDeviceName;
+                                                          });
 
     
     
